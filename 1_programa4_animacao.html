@@ -1,0 +1,31 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+    pincel.fillStyle = 'gray';
+    pincel.fillRect(0, 0, 600, 400);
+
+
+    function desenhaCirculo(x, y, raio) {
+
+        pincel.fillStyle = 'blue';
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2 * Math.PI);
+        pincel.fill();
+    }
+    // criar funçao limpa tela
+    function limpaTela() {
+        pincel.clearRect(0, 0, 600, 400);
+    }
+    var x = 20; // aqui definimos que x vai começar na posição 20
+    function atualizaTela() {
+
+        limpaTela(); // aqui ela vai limpar a tela a cada nova chamada de função
+        desenhaCirculo(x, 20, 10); // aqui ela vai desenha um Circulo n posição x (declarada na variável), na posição y,que definimos como 20, e no tamanho de 10. 
+        x++; // aqui ela vai acrescentar mais 20 a cada passada na função.
+    }
+    setInterval(atualizaTela, 20); // aqui o setInterval vai chamar a função atualizaTela
+                                   // a cada milisegundo definido.
+                                   //setIntrval recebe 2 parâmetros: 1* a função a seer executada, e 2* o intervalo de tempo para executar a função.
+</script>
